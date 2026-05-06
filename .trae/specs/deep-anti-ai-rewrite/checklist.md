@@ -1,0 +1,32 @@
+- [x] AI高频隐喻词黑名单已定义（噪音、信号、底色、光谱、滤镜、解药、土壤、基因、拼图、镜像、路径、尺子、横截面、透镜、窗口、缩影等16+词）
+- [x] AI伪口语化高频词黑名单已定义（拆一拆、盘一盘、聊一聊、捋一捋、划重点、敲黑板等10+词）
+- [x] AI高频分析动词黑名单及频次限制已定义（拆解、梳理、剖析等13词，全文≤2）
+- [x] 降维引导语黑名单及频次限制已定义（说白了、本质上等8词，全文≤1）
+- [x] "而是"变体禁用规则已定义（全文≤1）
+- [x] 协作/教学路标词禁用规则已定义
+- [x] 冒号预算规则已定义（1500-3000字目标0-2个全角冒号）
+- [x] AI高频关联句式禁用规则及频次限制已定义（全文≤2）
+- [x] AI戏剧化揭露修辞禁用规则已定义（正文清零）
+- [x] AI极值判断句式禁用规则已定义（全文≤1）
+- [x] "分析师讲解"语姿禁用规则已定义
+- [x] detectAntiTemplateViolations() 检测函数正确识别违规模式
+- [x] buildAntiTemplatePrompt() 提示词生成函数输出完整约束提示词
+- [x] humanWritingStyle.ts 新增 AI_HIGH_FREQUENCY_WORDS 模块
+- [x] humanWritingStyle.ts 新增 NARRATIVE_STRUCTURE_GUIDE 叙事结构指导模块
+- [x] humanWritingStyle.ts 新增 DEEP_DETECTION_COUNTERMEASURES 深度检测对抗模块
+- [x] HumanWritingStyleConfig 类型定义已更新
+- [x] HUMAN_WRITING_STYLE_CONFIG 导出已更新
+- [x] prompts.ts 使用模块化提示词构建器
+- [x] getChapterPrompt() 使用新构建器
+- [x] getContextAwareChapterPrompt() 使用新构建器
+- [x] generateContinuationPrompt() 使用新构建器
+- [x] generatePolishPrompt() 使用新构建器
+- [x] optimizePrompt() 使用新构建器
+- [x] 所有提示词注入叙事结构指导模块
+- [x] 所有提示词注入反模板硬约束模块
+- [x] 所有提示词注入深度检测对抗模块
+- [x] humanizeService.ts 集成 detectAntiTemplateViolations() 检测
+- [x] textRewriter.ts 应用反模板硬约束改写规则
+- [x] styleOptimizer.ts 增加AI高频词替换策略
+- [x] 后处理与前置注入使用相同的规则集
+- [x] TypeScript编译通过，无错误

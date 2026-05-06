@@ -1,0 +1,13 @@
+- [x] 自动保存3秒防抖后调用 saveChapterContent API 保存到后端
+- [x] 自动保存失败时保留 localStorage 内容并在 UI 提示用户
+- [x] 自动保存有状态指示器（保存中/已保存/保存失败）
+- [x] 切换章节时当前章节内容保存到后端
+- [x] 应用单条修复建议后内容保存到后端
+- [x] 批量应用修复建议后内容保存到后端
+- [x] 手动修复提交后内容保存到后端
+- [x] 清空章节内容时同步清空后端数据库
+- [x] chapterExecutionService.saveChapterContent 使用 calculateWordCount 计算字数
+- [x] novels 路由章节更新使用 calculateWordCount 替代 content.length
+- [x] saveChapterContent INSERT 分支不创建 workflow_id 为空的无效记录
+- [x] 批量创建章节不覆盖已有章节的 content/word_count/status
+- [x] 编译通过（npx tsc --noEmit）
