@@ -52,3 +52,21 @@ docker-volumes
 # Database
 *.sqlite
 *.sqlite3
+*.db
+
+# TypeScript build info
+*.tsbuildinfo
+tsc_errors.txt
+
+# Test results
+test-results/
+playwright-report/
+
+# Screenshots
+test-screenshots/
+
+# Python test scripts
+test-chapter-execution.py
+
+# Exports
+backend/exports/
