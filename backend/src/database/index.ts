@@ -239,6 +239,24 @@ const runMigrations = async (database: Database<sqlite3.Database, sqlite3.Statem
   } catch {
     console.log('迁移检查跳过 (quality_results 表可能不存在)')
   }
+
+  // 检查 styles 表是否是新版本结构
+  try {
+    const stylesTableInfo = await database.all("PRAGMA table_info(styles)") as Array<{ name: string }>
+    const stylesColumns = stylesTableInfo.map(col => col.name)
+    
+    // 如果 styles 表存在但没有 genre 列，需要重建表
+    if (stylesColumns.length > 0 && !stylesColumns.includes('genre')) {
+      console.log('迁移: 重建 styles 表以更新结构')
+      
+      // 删除旧表
+      await database.exec('DROP TABLE IF EXISTS styles')
+      
+      console.log('迁移: styles 表重建完成')
+    }
+  } catch {
+    console.log('迁移检查跳过 (styles 表可能不存在)')
+  }
 }
 
 export const initDatabase = async () => {
@@ -465,9 +483,15 @@ export const initDatabase = async () => {
       id TEXT PRIMARY KEY,
       name TEXT NOT NULL,
       description TEXT,
-      config TEXT NOT NULL,
+      genre TEXT NOT NULL DEFAULT 'general',
+      perspective TEXT NOT NULL DEFAULT 'third_person',
+      language TEXT NOT NULL DEFAULT 'modern',
+      description_style TEXT NOT NULL DEFAULT 'vivid',
+      pacing TEXT NOT NULL DEFAULT 'moderate',
+      dialogue TEXT NOT NULL DEFAULT 'natural',
       prompt_template TEXT,
-      is_custom INTEGER DEFAULT 0,
+      sample_text TEXT,
+      is_custom INTEGER DEFAULT 1,
       is_default INTEGER DEFAULT 0,
       created_at TEXT NOT NULL,
       updated_at TEXT NOT NULL
